@@ -43,6 +43,6 @@ public class MvcMainView {
     }
 
     public void showFailed() {
-        
+
     }
 }

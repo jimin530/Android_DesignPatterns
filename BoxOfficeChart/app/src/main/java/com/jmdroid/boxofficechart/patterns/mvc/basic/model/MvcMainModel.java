@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.jmdroid.boxofficechart.dto.res.ResBoxOffice;
 import com.jmdroid.boxofficechart.retrofit.RetrofitGenterator;
+import com.jmdroid.boxofficechart.util.TimeUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,7 +15,8 @@ public class MvcMainModel {
     private static final String TAG = "MvcMainModel";
 
     public void getBoxOffice(final MvcOnBoxOfficeListener listener) {
-        Call<ResBoxOffice> call = RetrofitGenterator.getInstance().getRetrofitImpFactory().getChart("99b6816e76ba5210c6c65ef822a824f4", "20170810");
+        TimeUtil timeUtil = new TimeUtil();
+        Call<ResBoxOffice> call = RetrofitGenterator.getInstance().getRetrofitImpFactory().getChart("99b6816e76ba5210c6c65ef822a824f4", timeUtil.getYesterdayDate());
         call.enqueue(new Callback<ResBoxOffice>() {
             @Override
             public void onResponse(Call<ResBoxOffice> call, Response<ResBoxOffice> response) {

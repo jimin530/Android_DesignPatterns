@@ -65,6 +65,6 @@ public class MvcWebView {
                 return false;
             }
         });
-        webView.loadUrl("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=" + movieNm);
+        webView.loadUrl("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=영화 " + movieNm);
     }
 }

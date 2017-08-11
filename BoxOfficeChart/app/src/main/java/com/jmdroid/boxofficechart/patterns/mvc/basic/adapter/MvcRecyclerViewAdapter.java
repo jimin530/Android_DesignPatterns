@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jmdroid.boxofficechart.R;
@@ -71,7 +71,7 @@ public class MvcRecyclerViewAdapter extends RecyclerView.Adapter<MvcRecyclerView
         TextView tv_mvc_opendt;
         TextView tv_mvc_audicnt;
         TextView tv_mvc_audiacc;
-        Button btn_detail_web;
+        ImageButton btn_detail_web;
 
         // 뷰로부터 컴포넌트를 획득
         public ViewHolder(View itemView) {
@@ -81,7 +81,7 @@ public class MvcRecyclerViewAdapter extends RecyclerView.Adapter<MvcRecyclerView
             tv_mvc_opendt = (TextView) itemView.findViewById(R.id.tv_mvc_opendt);
             tv_mvc_audicnt = (TextView) itemView.findViewById(R.id.tv_mvc_audicnt);
             tv_mvc_audiacc = (TextView) itemView.findViewById(R.id.tv_mvc_audiacc);
-            btn_detail_web = (Button) itemView.findViewById(R.id.btn_detail_web);
+            btn_detail_web = (ImageButton) itemView.findViewById(R.id.btn_detail_web);
         }
     }
 }
