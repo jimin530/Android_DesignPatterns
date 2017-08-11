@@ -1,16 +1,17 @@
 package com.jmdroid.boxofficechart.patterns.mvc.basic.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jmdroid.boxofficechart.R;
 import com.jmdroid.boxofficechart.dto.data.BoxOffice;
+import com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcWebActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,9 @@ public class MvcRecyclerViewAdapter extends RecyclerView.Adapter<MvcRecyclerView
         viewHolder.btn_detail_web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, boxOfficeList.get(position).getRank() + " 클릭", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, MvcWebActivity.class);
+                intent.putExtra("movieNm", boxOfficeList.get(position).getMovieNm());
+                context.startActivity(intent);
             }
         });
     }
