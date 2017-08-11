@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.jmdroid.boxofficechart.R;
 import com.jmdroid.boxofficechart.dto.res.ResBoxOffice;
-import com.jmdroid.boxofficechart.patterns.mvc.basic.adapter.RecyclerViewAdapter;
+import com.jmdroid.boxofficechart.patterns.mvc.basic.adapter.MvcRecyclerViewAdapter;
 import com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcMainActivity;
 
 
@@ -19,7 +19,7 @@ public class MvcMainView {
     private MvcReqMainView reqMainView;
 
     private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    private MvcRecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
 
     public MvcMainView(MvcMainActivity mainActivity, MvcReqMainView reqMainView) {
@@ -38,7 +38,7 @@ public class MvcMainView {
     }
 
     public void showSuccess(ResBoxOffice resBoxOffice) {
-        recyclerViewAdapter = new RecyclerViewAdapter(mainActivity, resBoxOffice.getBoxOfficeResult().getDailyBoxOfficeList());
+        recyclerViewAdapter = new MvcRecyclerViewAdapter(mainActivity, resBoxOffice.getBoxOfficeResult().getDailyBoxOfficeList());
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 

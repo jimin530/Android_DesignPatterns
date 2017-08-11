@@ -15,12 +15,12 @@ import com.jmdroid.boxofficechart.dto.data.BoxOffice;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class MvcRecyclerViewAdapter extends RecyclerView.Adapter<MvcRecyclerViewAdapter.ViewHolder> {
 
     Context context;
     List<BoxOffice> boxOfficeList = new ArrayList<>();
 
-    public RecyclerViewAdapter(Context context, List<BoxOffice> boxOfficeList) {
+    public MvcRecyclerViewAdapter(Context context, List<BoxOffice> boxOfficeList) {
         this.context = context;
         this.boxOfficeList = boxOfficeList;
     }
