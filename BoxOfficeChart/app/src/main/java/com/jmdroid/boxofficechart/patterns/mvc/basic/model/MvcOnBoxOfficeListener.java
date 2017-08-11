@@ -1,4 +1,4 @@
-package com.jmdroid.boxofficechart.patterns.mvc.model;
+package com.jmdroid.boxofficechart.patterns.mvc.basic.model;
 
 
 import com.jmdroid.boxofficechart.dto.res.ResBoxOffice;

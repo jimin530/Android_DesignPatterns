@@ -1,4 +1,4 @@
-package com.jmdroid.boxofficechart.patterns.mvc.model;
+package com.jmdroid.boxofficechart.patterns.mvc.basic.model;
 
 import android.util.Log;
 
@@ -11,7 +11,7 @@ import retrofit2.Response;
 
 public class MvcMainModel {
 
-    private static final String TAG = "MainModelImpl";
+    private static final String TAG = "MvcMainModel";
 
     public void getBoxOffice(final MvcOnBoxOfficeListener listener) {
         Call<ResBoxOffice> call = RetrofitGenterator.getInstance().getRetrofitImpFactory().getChart("99b6816e76ba5210c6c65ef822a824f4", "20170810");
