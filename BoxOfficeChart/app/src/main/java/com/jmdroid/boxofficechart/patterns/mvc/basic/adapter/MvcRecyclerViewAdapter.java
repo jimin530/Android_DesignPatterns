@@ -51,7 +51,7 @@ public class MvcRecyclerViewAdapter extends RecyclerView.Adapter<MvcRecyclerView
         viewHolder.tv_mvc_rank.setText(boxOfficeList.get(position).getRank());
         viewHolder.tv_mvc_movienm.setText(boxOfficeList.get(position).getMovieNm());
         viewHolder.tv_mvc_opendt.setText("개봉일 : " + boxOfficeList.get(position).getOpenDt());
-        viewHolder.tv_mvc_audicnt.setText("당일 관객수 : " + boxOfficeList.get(position).getAudiCnt() + "명");
+        viewHolder.tv_mvc_audicnt.setText("전일 관객수 : " + boxOfficeList.get(position).getAudiCnt() + "명");
         viewHolder.tv_mvc_audiacc.setText("누적 관객수 : " + boxOfficeList.get(position).getAudiAcc() + "명");
         viewHolder.btn_detail_web.setOnClickListener(new View.OnClickListener() {
             @Override

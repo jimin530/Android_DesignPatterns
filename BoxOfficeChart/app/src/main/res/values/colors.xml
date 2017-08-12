@@ -10,4 +10,6 @@
     <color name="colorWhite">#ffffff</color>
     <!--회색-->
     <color name="colorGray">#4d4d4d</color>
+    <!--옅은 회색-->
+    <color name="colorUnderGray">#b5b5b5</color>
 </resources>
