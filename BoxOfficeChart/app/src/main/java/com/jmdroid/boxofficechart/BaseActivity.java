@@ -1,6 +1,5 @@
 package com.jmdroid.boxofficechart;
 
-import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,23 +23,6 @@ public class BaseActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
 
-    }
-
-    private ProgressDialog progressDialog;
-
-    public void showProgress(String msg) {
-        if (progressDialog == null) {
-            progressDialog = new ProgressDialog(this);
-            progressDialog.setCancelable(false);
-        }
-        progressDialog.setMessage(msg);
-        progressDialog.show();
-    }
-
-    public void hideProgress() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
     }
 
     public void startCgv(View view) {

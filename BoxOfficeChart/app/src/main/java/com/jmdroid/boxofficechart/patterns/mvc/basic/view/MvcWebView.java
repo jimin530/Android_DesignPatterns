@@ -1,10 +1,11 @@
 package com.jmdroid.boxofficechart.patterns.mvc.basic.view;
 
-import android.graphics.Bitmap;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.jmdroid.boxofficechart.R;
 import com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcWebActivity;
@@ -18,6 +19,7 @@ public class MvcWebView {
     private MvcWebActivity webActivity;
     private String movieNm;
     private WebView webView;
+    private ProgressBar progressBar;
 
     public MvcWebView(MvcWebActivity webActivity, String movieNm) {
         this.webActivity = webActivity;
@@ -26,6 +28,8 @@ public class MvcWebView {
     }
 
     private void initView() {
+        progressBar = (ProgressBar) webActivity.findViewById(R.id.progressBar);
+
         webView = (WebView) webActivity.findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAppCacheEnabled(false);
@@ -37,14 +41,20 @@ public class MvcWebView {
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.getSettings().setSupportMultipleWindows(true);
         webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                webActivity.hideProgress();
+            public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                progressBar.setVisibility(View.VISIBLE);
             }
 
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+        });
+        webView.setWebChromeClient(new WebChromeClient() {
             @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                webActivity.showProgress("Loading...");
+            public void onProgressChanged(WebView view, int newProgress) {
+                progressBar.setProgress(newProgress);
             }
         });
         webView.setOnKeyListener(new View.OnKeyListener() {

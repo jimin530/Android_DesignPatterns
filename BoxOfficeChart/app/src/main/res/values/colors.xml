@@ -12,4 +12,6 @@
     <color name="colorGray">#4d4d4d</color>
     <!--옅은 회색-->
     <color name="colorUnderGray">#b5b5b5</color>
+    <!--초록색-->
+    <color name="colorGreen">#00be39</color>
 </resources>
