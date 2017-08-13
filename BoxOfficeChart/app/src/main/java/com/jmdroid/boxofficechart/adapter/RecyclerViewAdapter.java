@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.jmdroid.boxofficechart.R;
 import com.jmdroid.boxofficechart.dto.data.BoxOffice;
-import com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcWebActivity;
+import com.jmdroid.boxofficechart.patterns.mvp.basic.view.MvpWebActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         viewHolder.btn_detail_web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MvcWebActivity.class);
+                // MVC
+                // Intent intent = new Intent(context, MvcWebActivity.class);
+                // MVP
+                Intent intent = new Intent(context, MvpWebActivity.class);
                 intent.putExtra("movieNm", boxOfficeList.get(position).getMovieNm());
                 context.startActivity(intent);
             }

@@ -6,7 +6,10 @@ import com.jmdroid.boxofficechart.dto.res.ResBoxOffice;
 
 public interface MvpMainPresenter {
     void onSuccess(ResBoxOffice resBoxOffice);
+
     void onError();
+
     void initView();
+
     void sendRequest(Context context);
 }

@@ -18,8 +18,8 @@ import com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcWebActivity;
 public class MvcWebView {
     private MvcWebActivity webActivity;
     private String movieNm;
-    private WebView webView;
-    private ProgressBar progressBar;
+    private WebView mvcWebView;
+    private ProgressBar mvcProgressBar;
 
     public MvcWebView(MvcWebActivity webActivity, String movieNm) {
         this.webActivity = webActivity;
@@ -28,44 +28,44 @@ public class MvcWebView {
     }
 
     private void initView() {
-        progressBar = (ProgressBar) webActivity.findViewById(R.id.progressBar);
+        mvcProgressBar = (ProgressBar) webActivity.findViewById(R.id.mvcProgressBar);
 
-        webView = (WebView) webActivity.findViewById(R.id.webView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setAppCacheEnabled(false);
-        webView.getSettings().setDatabaseEnabled(true);
-        webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setSaveFormData(false);
-        webView.getSettings().setAllowContentAccess(false);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.getSettings().setSupportMultipleWindows(true);
-        webView.setWebViewClient(new WebViewClient() {
+        mvcWebView = (WebView) webActivity.findViewById(R.id.mvcWebView);
+        mvcWebView.getSettings().setJavaScriptEnabled(true);
+        mvcWebView.getSettings().setAppCacheEnabled(false);
+        mvcWebView.getSettings().setDatabaseEnabled(true);
+        mvcWebView.getSettings().setDomStorageEnabled(true);
+        mvcWebView.getSettings().setSaveFormData(false);
+        mvcWebView.getSettings().setAllowContentAccess(false);
+        mvcWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        mvcWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        mvcWebView.getSettings().setSupportMultipleWindows(true);
+        mvcWebView.setWebViewClient(new WebViewClient() {
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-                progressBar.setVisibility(View.VISIBLE);
+                mvcProgressBar.setVisibility(View.VISIBLE);
             }
 
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                progressBar.setVisibility(View.INVISIBLE);
+                mvcProgressBar.setVisibility(View.INVISIBLE);
             }
         });
-        webView.setWebChromeClient(new WebChromeClient() {
+        mvcWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                progressBar.setProgress(newProgress);
+                mvcProgressBar.setProgress(newProgress);
             }
         });
-        webView.setOnKeyListener(new View.OnKeyListener() {
+        mvcWebView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() != KeyEvent.ACTION_DOWN)
                     return true;
 
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    if (webView.canGoBack()) {
-                        webView.goBack();
+                    if (mvcWebView.canGoBack()) {
+                        mvcWebView.goBack();
                     } else {
                         webActivity.onBackPressed();
                     }
@@ -75,6 +75,6 @@ public class MvcWebView {
                 return false;
             }
         });
-        webView.loadUrl("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=영화 " + movieNm);
+        mvcWebView.loadUrl("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=영화 " + movieNm);
     }
 }

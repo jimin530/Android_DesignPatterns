@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcWebActivity">
+    tools:context="com.jmdroid.boxofficechart.patterns.mvp.basic.view.MvpWebActivity">
 
     <include layout="@layout/toolbar_main" />
 
     <ProgressBar
-        android:id="@+id/mvcProgressBar"
+        android:id="@+id/mvpProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_gravity="top"
-        android:max="100"
         android:indeterminate="true"
+        android:indeterminateTint="@color/colorGreen"
         android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/colorGreen"/>
+        android:max="100" />
 
 
     <WebView
-        android:id="@+id/mvcWebView"
+        android:id="@+id/mvpWebView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

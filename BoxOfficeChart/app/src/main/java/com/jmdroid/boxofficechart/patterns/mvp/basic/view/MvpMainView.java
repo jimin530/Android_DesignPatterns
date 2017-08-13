@@ -4,6 +4,8 @@ import com.jmdroid.boxofficechart.dto.res.ResBoxOffice;
 
 public interface MvpMainView {
     void initView();
+
     void showSuccess(ResBoxOffice resBoxOffice);
+
     void showError();
 }

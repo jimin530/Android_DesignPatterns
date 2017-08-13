@@ -18,7 +18,7 @@ public class MvcMainView {
     private MvcMainActivity mainActivity;
     private MvcReqMainView reqMainView;
 
-    private RecyclerView recyclerView;
+    private RecyclerView mvcRecyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
 
@@ -29,17 +29,17 @@ public class MvcMainView {
     }
 
     private void initView() {
-        recyclerView = (RecyclerView) mainActivity.findViewById(R.id.recyclerView);
+        mvcRecyclerView = (RecyclerView) mainActivity.findViewById(R.id.mvcRecyclerView);
         linearLayoutManager = new LinearLayoutManager(mainActivity);
         linearLayoutManager.setOrientation(OrientationHelper.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        mvcRecyclerView.setLayoutManager(linearLayoutManager);
 
         reqMainView.sendRequest();
     }
 
     public void showSuccess(ResBoxOffice resBoxOffice) {
         recyclerViewAdapter = new RecyclerViewAdapter(mainActivity, resBoxOffice.getBoxOfficeResult().getDailyBoxOfficeList());
-        recyclerView.setAdapter(recyclerViewAdapter);
+        mvcRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
     public void showFailed() {
