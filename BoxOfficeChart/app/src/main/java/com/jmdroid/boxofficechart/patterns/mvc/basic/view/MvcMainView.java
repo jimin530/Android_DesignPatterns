@@ -5,8 +5,8 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 
 import com.jmdroid.boxofficechart.R;
+import com.jmdroid.boxofficechart.adapter.RecyclerViewAdapter;
 import com.jmdroid.boxofficechart.dto.res.ResBoxOffice;
-import com.jmdroid.boxofficechart.patterns.mvc.basic.adapter.MvcRecyclerViewAdapter;
 import com.jmdroid.boxofficechart.patterns.mvc.basic.controller.MvcMainActivity;
 
 
@@ -19,7 +19,7 @@ public class MvcMainView {
     private MvcReqMainView reqMainView;
 
     private RecyclerView recyclerView;
-    private MvcRecyclerViewAdapter recyclerViewAdapter;
+    private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
 
     public MvcMainView(MvcMainActivity mainActivity, MvcReqMainView reqMainView) {
@@ -38,7 +38,7 @@ public class MvcMainView {
     }
 
     public void showSuccess(ResBoxOffice resBoxOffice) {
-        recyclerViewAdapter = new MvcRecyclerViewAdapter(mainActivity, resBoxOffice.getBoxOfficeResult().getDailyBoxOfficeList());
+        recyclerViewAdapter = new RecyclerViewAdapter(mainActivity, resBoxOffice.getBoxOfficeResult().getDailyBoxOfficeList());
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 

@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".patterns.mvc.basic.controller.MvcMainActivity">
+
+        </activity>
+        <activity android:name=".patterns.mvc.basic.controller.MvcWebActivity" />
+        <activity android:name=".patterns.mvp.basic.view.MvpMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".patterns.mvc.basic.controller.MvcWebActivity"/>
     </application>
 
 </manifest>
